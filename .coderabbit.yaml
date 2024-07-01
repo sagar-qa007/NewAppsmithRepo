@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+early_access: false
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "**/*.js"
+      instructions: |
+        Review the Cypress code against the  JavaScript style guide and point out any mismatches
+    - path: "app/client/cypress/e2e/**.*"
+      instructions: |
+        Review the following unit test code written using the Cypress test library. Ensure that:
+        - The code adheres to best practices associated with Cypress.
+        - Descriptive test names are used to clearly convey the intent of each test.
+        - All file names should start with Capital letters.
+        - Avoid using static waits.
+        - Avoid using strings as locators; use variables instead.
+        - Use `data-*` attributes for selectors. Do not use Xpaths. Don't target elements based on CSS attributes such as `id`, `class`, or `tag`. Don't target elements that may change their `textContent`.
+        - Avoid using CSS or JS selectors like `.btn.submit` or `button[type=submit]` as selectors.
+        - Ensure all logins in tests are performed through the API. Programmatically log into your application using `LoginFromAPI` instead of logging in through UI, except when login is being tested.
+        - Avoid using external URLs in a spec. Do not visit or interact with sites or servers you do not control.
+        - Ensure tests (`it`) are independent of each other's state. Tests should always be able to run independently from one another **and still pass**. Change `it` to `it.only` and the test should run **by itself** and pass. Combine dependent tests into one or run shared code before each test.
+        - Ensure a test can run and pass by converting it to `it.only`.
+        - Properly utilise `before`, `beforeEach`, `after`, and `afterEach` hooks. Don’t use `after` or `afterEach` hooks to clean up state. Clean up state **before** tests run.
+        - For new specs, check for flakiness by running independently on CI using `ci-test-limit` at least 10 times to ensure it passes each time.
+        - Do not treat Cypress as unit tests. Add multiple assertions and don't worry about the length of a test.
+        - Do not add strings to Cypress tests; use constants from the messages file.
+        - If you do not want to run a test, add `.skip` to it instead of commenting it out. Skipped tests can be revisited and fixed later, while commented tests may go unnoticed for an extended period.
+        - Add datasource creation/deletion and DSL-related operations into `before` hooks; do not create separate test cases for these actions.
+
+chat:
+  auto_reply: true
