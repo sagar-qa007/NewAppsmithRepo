@@ -42,6 +42,10 @@ describe(
       });
     });
 
+    after("After app and spreadsheet", function () {
+      
+    });
+
     it("1. Add and verify fetch details query", () => {
       entityExplorer.CreateNewDsQuery(dataSourceName);
       agHelper.RenameWithInPane("Fetch_Details");
