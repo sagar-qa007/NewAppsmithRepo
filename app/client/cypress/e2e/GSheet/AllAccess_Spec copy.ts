@@ -47,6 +47,7 @@ describe(
     });
 
     it("1. Add and verify fetch details query", () => {
+      cy.wait(5000);
       entityExplorer.CreateNewDsQuery(dataSourceName);
       agHelper.RenameWithInPane("Fetch_Details");
       dataSources.ValidateNSelectDropdown(
@@ -78,7 +79,7 @@ describe(
           "Inserted row successfully!",
         );
       });
-
+      cy.wait(5000);
       // add insert many query and verify
       gsheetHelper.AddInsertOrUpdateQuery(
         "Insert Many",
@@ -91,6 +92,7 @@ describe(
           "Inserted rows successfully!",
         );
       });
+      cy.wait(5000);
     });
 
     it("3. Verify Update one and Update many queries", () => {
@@ -114,6 +116,7 @@ describe(
         spreadSheetName,
         JSON.stringify(GSHEET_DATA.slice(2, 4)),
       );
+      cy.wait(5000);
       cy.get("@postExecute").then((interception: any) => {
         expect(interception.response.body.data.body.message).to.deep.equal(
           "Updated sheet successfully!",
@@ -128,6 +131,7 @@ describe(
         dataSourceName,
         spreadSheetName,
       );
+      cy.wait(5000);
       dataSources.RunQueryNVerifyResponseViews(GSHEET_DATA.length);
       dataSources.AssertQueryTableResponse(0, GSHEET_DATA[0].uniq_id);
       dataSources.AssertQueryTableResponse(1, "ホーンビィ 2014 カタログ"); // Asserting other language
@@ -158,7 +162,7 @@ describe(
       ); // Asserting other language
       dataSources.AssertQueryTableResponse(2, "₹, $, €, ¥, £"); // Asserting different symbols
       dataSources.AssertQueryTableResponse(3, "!@#$%^&*"); // Asserting special chars
-
+      cy.wait(5000);
       // Sort by descending and verify
       dataSources.ClearSortByOption(); //clearing previous sort option
       dataSources.EnterSortByValues("price", "Descending");
@@ -172,7 +176,7 @@ describe(
         4,
         "Hornby Gauge Western Express Digital Train Set with eLink and TTS Loco Train Set",
       );
-
+      cy.wait(5000);
       // Filter by where clause and verify
       agHelper.TypeDynamicInputValueNValidate(
         "price",
