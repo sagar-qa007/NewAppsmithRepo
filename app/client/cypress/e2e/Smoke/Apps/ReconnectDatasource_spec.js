@@ -5,9 +5,14 @@ import {
   agHelper,
 } from "../../../support/Objects/ObjectsCore";
 
+function add(){
+  return 2+3;
+}
+
 describe(
   "Reconnect Datasource Modal validation while importing application",
   { tags: ["@tag.Datasource", "@tag.Sanity"] },
+ 
   function () {
     let workspaceId;
     let appid;
@@ -15,6 +20,13 @@ describe(
     let appName;
     it("1. Import application from json with one postgres and success modal", function () {
       homePage.NavigateToHome();
+      cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+
+          add();
       // import application
       cy.generateUUID().then((uid) => {
         workspaceId = uid;
