@@ -33,6 +33,7 @@ describe(
           cy.wait(10000);
           cy.wait(10000);
           cy.wait(10000);
+          cy.wait(10000);
           cy.get(homePageLocators.workspaceImportAppModal).should("be.visible");
           cy.xpath(homePageLocators.uploadLogo)
             .first()
