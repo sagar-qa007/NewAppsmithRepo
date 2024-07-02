@@ -26,6 +26,19 @@ describe(
           cy.wait(10000);
           cy.wait(10000);
 
+
+          cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+          cy.wait(10000);
+
+
+          add();
+          add();
+          add();
+          add();
+          add();
           add();
       // import application
       cy.generateUUID().then((uid) => {
