@@ -22,9 +22,7 @@ describe(
       homePage.NavigateToHome();
       cy.wait(10000);
           cy.wait(10000);
-          cy.wait(10000);
-          cy.wait(10000);
-          cy.wait(10000);
+         
 
 
           cy.wait(10000);
