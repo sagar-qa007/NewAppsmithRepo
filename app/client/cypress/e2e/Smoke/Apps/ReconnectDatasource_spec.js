@@ -29,7 +29,7 @@ describe(
             0,
             true,
           );
-
+          cy.wait(10000);
           cy.get(homePageLocators.workspaceImportAppModal).should("be.visible");
           cy.xpath(homePageLocators.uploadLogo)
             .first()
